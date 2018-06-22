@@ -48,7 +48,7 @@ export class AppService {
     };
   }
 
-  private log(message: any) {
+  private log(message: object) {
     console.log('zfx:', message)
   }
 }

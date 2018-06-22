@@ -1,0 +1,19 @@
+<section>
+  <div class="card">
+    <div echarts [options]="initOption" [merge]="updateOption"></div>
+    <div class="table">
+      <div>
+        <div>当前值</div>
+        <div>平均值</div>
+      </div>
+      <div>
+        <div>{{now}}</div>
+        <div>{{average}}</div>
+      </div>
+    </div>
+    <div style="margin-top: 30px;">
+        <button (click)="change()" style="margin-right: 30px;">{{button}}</button>
+        <button (click)="clear()">清空</button>
+    </div>
+  </div>
+</section>

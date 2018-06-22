@@ -7,13 +7,15 @@ const router = new Router({
   prefix: '/api'
 })
 const s3 = require('../s3');
-const oss = require('../ali-oss');
+// const oss = require('../ali-oss');
 const config = require('../config');
 const mode = config.mode;
 
 router
   .get('/latency', async ctx => {
-    ctx.body = 'ok'
+    ctx.body = {
+      status: 'success'
+    }
   })
   .get('/download', async ctx => {
     if (mode == 'aws-sdk') {

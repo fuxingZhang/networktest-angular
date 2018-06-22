@@ -1,0 +1,33 @@
+header {
+  display: flex;
+  height: 60px;
+  line-height: 60px;
+  background-color: #2a3f54;
+  color: #fff;
+}
+h1{
+  width: 300px;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  font-weight: normal;
+}
+nav{
+  flex: 1;
+}
+nav a{
+  display: inline-block;
+  width: 100px;;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  height: 59px;
+  box-sizing: border-box;
+}
+nav a:hover{
+  background-color: rgb(34, 50, 67);
+}
+nav a.active{
+  border-bottom: 2px solid rgb(255, 208, 75);
+  color: rgb(255, 208, 75);
+}

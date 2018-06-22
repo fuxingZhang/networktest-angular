@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  now: number;
+
+  constructor() {
+    this.now = 1;
+  }
+
+  ngOnInit() {
+  }
 }

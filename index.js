@@ -4,6 +4,10 @@ const Router = require('koa-router')
 const router = require("./routes")
 const koaBody = require('koa-body')
 
+// 跨域
+const cors = require('koa2-cors')
+app.use(cors())
+
 // logger
 app.use(async (ctx, next) => {
   const start = Date.now()

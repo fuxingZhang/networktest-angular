@@ -6,10 +6,10 @@ const inspect = require('util').inspect;
 const router = new Router({
   prefix: '/api'
 })
-const s3 = require('../s3');
-// const oss = require('../ali-oss');
 const config = require('../config');
 const mode = config.mode;
+let s3 = null;
+let oss = null;
 
 router
   .get('/latency', async ctx => {
@@ -19,6 +19,7 @@ router
   })
   .get('/download', async ctx => {
     if (mode == 'aws-sdk') {
+      s3 = require('../s3');
       let request = s3.getObject({
         Bucket: config.s3.bucket,
         Key: '100mb_file.bin'
@@ -35,12 +36,14 @@ router
         request.abort.bind(request)
       }
     } else if (mode == 'ali-sdk') {
+      oss = require('../ali-oss');
       let res = await oss.getStream('100mb_file.bin', {
         timeout: 60 * 60 * 1000,   // ms
       })
       ctx.body = res.stream
     } else {
       ctx.body = fs.createReadStream('./testFiles/10mb_file.bin')
+      ctx.body = fs.createReadStream('./testFiles/100.bin')
     }
   })
   .get('/upload', async ctx => {

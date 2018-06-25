@@ -11,26 +11,28 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class AppService {
 
-  private heroesUrl = 'http://localhost:8200/api';  // URL to web api
+  private baseUrl = 'http://localhost:8200/api';  // URL to web api
 
   constructor(private http: HttpClient) { }
 
-  /** GET heroes from the server */
   getLatency (): Observable<any> {
-    return this.http.get(`${this.heroesUrl}/latency`, httpOptions)
+    return this.http.get(`${this.baseUrl}/latency`, httpOptions)
       .pipe(
         tap(res => this.log(res)),
-        catchError(this.handleError('getHeroes', []))
+        catchError(this.handleError('getLatency', []))
       );
   }
 
-  // /** POST: add a new hero to the server */
-  // addHero (hero: Hero): Observable<Hero> {
-  //   return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
-  //     tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
-  //     catchError(this.handleError<Hero>('addHero'))
-  //   );
-  // }
+  download (): Observable<any> {
+    return this.http.get(`${this.baseUrl}/download`, {
+      responseType: 'text',
+      reportProgress: true
+    })
+    .pipe(
+      tap(res => this.log({operation: 'downloading'})),
+      catchError(this.handleError('download', []))
+    );
+  }
 
   /**
    * Handle Http operation that failed.
@@ -39,6 +41,8 @@ export class AppService {
    * @param result - optional value to return as the observable result
    */
   private handleError<T> (operation = 'operation', result?: T) {
+    console.log(`handleError operation: ${operation}`);
+
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead

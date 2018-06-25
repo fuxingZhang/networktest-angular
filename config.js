@@ -21,5 +21,5 @@ module.exports = {
     region: "",
     bucket: "networktest"
   },
-  mode:'ali-sdk',   // file, ali-sdk, aws-sdk
+  mode:'file',   // file, ali-sdk, aws-sdk
 }

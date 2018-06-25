@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { latency }  from './latency/latency';
+import { download }  from './download/download';
+import { upload }  from './upload/upload';
 
 import { NgxEchartsModule } from 'ngx-echarts';
 
@@ -21,7 +23,9 @@ import { NgxEchartsModule } from 'ngx-echarts';
   ],
   declarations: [
     AppComponent,
-    latency
+    latency,
+    download,
+    upload
   ],
   bootstrap: [ AppComponent ]
 })

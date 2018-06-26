@@ -19,7 +19,9 @@ router
   })
   .get('/download', async ctx => {
     if (mode == 'aws-sdk') {
-      s3 = require('../s3');
+      if(!s3) {
+        s3 = require('../s3');
+      }
       let request = s3.getObject({
         Bucket: config.s3.bucket,
         Key: '100mb_file.bin'
@@ -36,14 +38,15 @@ router
         request.abort.bind(request)
       }
     } else if (mode == 'ali-sdk') {
-      oss = require('../ali-oss');
+      if(!oss) {
+        oss = require('../ali-oss');
+      }
       let res = await oss.getStream('100mb_file.bin', {
         timeout: 60 * 60 * 1000,   // ms
       })
       ctx.body = res.stream
     } else {
       ctx.body = fs.createReadStream('./testFiles/10mb_file.bin')
-      ctx.body = fs.createReadStream('./testFiles/100.bin')
     }
   })
   .get('/upload', async ctx => {
@@ -54,6 +57,9 @@ router
       let busboy = new Busboy({ headers: ctx.headers });
       busboy.on('file', async (fieldname, file, filename, encoding, mimetype) => {
         if (mode == 'aws-sdk') {
+          if(!s3) {
+            s3 = require('../s3');
+          }
           let request = s3.upload({
             Bucket: config.s3.bucket,
             Key: filename,
@@ -72,6 +78,9 @@ router
             request.abort.bind(request)
           }
         } else if (mode == 'ali-sdk') {
+          if(!oss) {
+            oss = require('../ali-oss');
+          }
           let res = await oss.putStream(filename, file, {
             timeout: 60 * 60 * 1000,   // ms
           })

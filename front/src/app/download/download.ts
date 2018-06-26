@@ -19,6 +19,7 @@ export class download implements OnInit {
   length: number;
   tableData: [object];
   updateOption: any;
+  userCancal: boolean;
   Event:{
     loaded: string
   }
@@ -26,6 +27,7 @@ export class download implements OnInit {
   constructor(private http: HttpClient) {
     this.button = "开始";
     this.running = false;
+    this.userCancal = false;
     this.now = 0;
     this.start = 0;
     this.average = 0;
@@ -86,12 +88,14 @@ export class download implements OnInit {
 
   change(): void{
     if (this.running) {
+      this.userCancal = true;
       this.button = "开始";
       this.running = false;
       return;
     }
     this.running = true;
     this.button = "停止";
+    this.userCancal = false;
     this.run();
   }
 
@@ -101,7 +105,7 @@ export class download implements OnInit {
     this.download()
     .subscribe(res => {
       console.log('subscribe')
-      if(!this.running) {
+      if(this.userCancal) {
         throw Error('Operation canceled by the user.');
       }
     })
@@ -140,7 +144,7 @@ export class download implements OnInit {
   }
 
   onProgress (res: any): void{
-    console.log('downloading')
+    console.log('downloading') 
   }
   
   getEventMessage(event: HttpEvent<any>): void{

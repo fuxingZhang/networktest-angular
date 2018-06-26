@@ -1,5 +1,5 @@
-# networktest-angular
-network test based on  koa2, angular
+# Network Test - Angular 6.0
+Network test based on  koa2, angular
 
 ## 目录结构  
 ```  
@@ -18,12 +18,12 @@ networktest-angular
 ├── config.js            // 配置文件
 ├── index.js             // 入口文件
 ├── package.json         // node module dependencies
-└──  README.md           // readme file
+└── README.md            // readme file
 ```  
 
 ## 相关资源  
 ### angular  
-英文: https://angular.io/
+英文: https://angular.io/  
 中文: https://www.angular.cn  
 
 ### angular-cli  
@@ -44,7 +44,7 @@ networktest-angular
 英文: https://nodejs.org/en/  
 中文: http://nodejs.cn/
 
-## 同类项目  
+## 相关项目  
 #### network test base on vue 
 https://github.com/fuxingZhang/networktest  
 
@@ -53,8 +53,8 @@ https://github.com/fuxingZhang/networktest-react
 
 ## 演示截图  
 
-![延迟测试](https://github.com/fuxingZhang/networktest-angular/tree/master/screenshots/latency.png)
-![上传测试](https://github.com/fuxingZhang/networktest-angular/tree/master/screenshots/upload.png)
-![下载测试](https://github.com/fuxingZhang/networktest-angular/tree/master/screenshots/download.png)
+![延迟测试](https://github.com/fuxingZhang/networktest-angular/blob/master/screenshots/latency.png)  
+![上传测试](https://github.com/fuxingZhang/networktest-angular/blob/master/screenshots/upload.png)  
+![下载测试](https://github.com/fuxingZhang/networktest-angular/blob/master/screenshots/download.png)  
 
 

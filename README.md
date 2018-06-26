@@ -1,5 +1,5 @@
 # Network Test - Angular 6.0
-Network test based on  koa2, angular
+Network test based on  koa2, angular 6.0
 
 ## 目录结构  
 ```  
@@ -53,8 +53,8 @@ https://github.com/fuxingZhang/networktest-react
 
 ## 演示截图  
 
-![延迟测试](https://github.com/fuxingZhang/networktest-angular/blob/master/screenshots/latency.png)  
-![上传测试](https://github.com/fuxingZhang/networktest-angular/blob/master/screenshots/upload.png)  
+![延迟测试](https://github.com/fuxingZhang/networktest-angular/blob/master/screenshots/latency.png)   
 ![下载测试](https://github.com/fuxingZhang/networktest-angular/blob/master/screenshots/download.png)  
+![上传测试](https://github.com/fuxingZhang/networktest-angular/blob/master/screenshots/upload.png)  
 
 
